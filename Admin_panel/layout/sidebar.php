@@ -2,10 +2,10 @@
 
   <!-- Sidebar - Brand -->
   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="?">
-    <div class="sidebar-brand-icon rotate-n-15">
-      <i class="fas fa-laugh-wink"></i>
-    </div>
-    <div class="sidebar-brand-text mx-3">Tin Tin Restaurant<sup>2</sup></div>
+<!--    <div class="sidebar-brand-icon rotate-n-15">-->
+<!--      <i class="fas fa-laugh-wink"></i>-->
+<!--    </div>-->
+    <div class="sidebar-brand-text mx-3">E-restaurant</div>
   </a>
 
   <!-- Divider -->
@@ -96,7 +96,7 @@
         </div>
       </div>
     </li>
-<!-- 
+<!--
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#reports" aria-expanded="true" aria-controls="reports">
         <i class="fas fa-file-alt"></i>

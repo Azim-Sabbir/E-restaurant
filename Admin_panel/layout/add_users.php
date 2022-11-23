@@ -11,11 +11,20 @@ $user=new user;
 
   	<div class="form-group">
       <label>Group</label>
-      <select class="form-control group">
-      	<option>Select Group</option>
-      	<option value="staff">Staff</option>
-      	<option value="members">Members</option>
-      </select>
+        <select class="form-control group">
+            <option>Select Store</option>
+            <?php
+            $data=$user->group_list();
+            while($fetch_groups=$data->fetch_assoc())
+            {
+                ?>
+
+                <option value="<?=$fetch_groups['group_name']?>"><?=$fetch_groups['group_name']?></option>
+
+                <?php
+            }
+            ?>
+        </select>
     </div>
 
     <div class="form-group">
@@ -90,7 +99,7 @@ $user=new user;
       	<option value="female">Female</option>
       </select>
     </div>
-<!-- 
+<!--
     <div class="form-group">
       <label>Image</label>
       <input type="file" class="form-control file" placeholder="Choose Image" name="file">
@@ -157,7 +166,9 @@ $user=new user;
     // $("#password").password('toggle');
 
 
-		$(document).on("click",".submit",function(){
+		$(document).on("click",".submit",function(e){
+            e.preventDefault();
+
 			var group=$(".group").val();
 			var store=$(".store").val();
 			var user_name=$(".user_name").val();
@@ -170,7 +181,7 @@ $user=new user;
        $.ajax({
 				url:'ajax_users.php',
 				type:'post',
-				data:{'group':group,'store':store,'user_name':user_name,'email':email,'pass':pass,'first_name':first_name,'last_name':last_name,'phone':phone,'gender':gender},
+				data:{'user_name':user_name,'email':email,'pass':pass,'first_name':first_name,'last_name':last_name,'phone':phone,'gender':gender, 'group_name':group, 'store_name':store},
 				success:function(data){
 					if (data=="empty")
         			{
@@ -179,6 +190,7 @@ $user=new user;
         			else if (data=="success")
         			{
           				swal("Success!","Successfully user Inserted","success");
+                        window.location.href="/Admin_panel/index.php?page=manage_users";
 
         			}
         			else

@@ -9,10 +9,10 @@ $db=new Database;
 // $fm=new Format;
 
 
-if(isset($_POST['group']))
+if(isset($_POST['group_name']))
 {
-	$group=$_POST['group'];
-	$store=$_POST['store'];
+	$group=$_POST['group_name'];
+	$store=$_POST['store_name'];
 	$user_name=$_POST['user_name'];
 	$email=$_POST['email'];
 	$pass=md5($_POST['pass']);
@@ -21,7 +21,7 @@ if(isset($_POST['group']))
 	$phone=$_POST['phone'];
 	$gender=$_POST['gender'];
 
-	
+
 	// move_uploaded_file($file_temp, $file_unique_name);
 
 	if (empty($group)||empty($store)||empty($user_name)||empty($email)||empty($pass)||empty($first_name)||empty($last_name)||empty($phone)||empty($gender))
@@ -31,7 +31,19 @@ if(isset($_POST['group']))
 	else
 	{
 
-		$add_user=$db->insert("user_list","group_name='$group',store='$store',user_name='$user_name',email='$email',pass='$pass',first_name='$first_name',last_name='$last_name',phone='$phone',gender='$gender'");
+		$add_user=$db->insert(
+			"user_list",
+			"group_name='$group', 
+			store_name='$store', 
+			user_name='$user_name', 
+			email='$email', 
+			pass='$pass', 
+			first_name='$first_name', 
+			last_name='$last_name', 
+			phone='$phone', 
+			gender='$gender'"
+		);
+
 		if ($add_user)
 		{
 			echo "success";
@@ -67,7 +79,7 @@ if(isset($_POST['u_list']))
 			    {
 			      $html.="<tr>";
 			      $html.="<td>".$value['group_name']."</td>";
-			      $html.="<td>".$value['store']."</td>";
+			      $html.="<td>".$value['store_name']."</td>";
 			      $html.="<td>".$value['user_name']."</td>";
 			      $html.="<td>".$value['email']."</td>";
 			      $html.="<td>".$value['phone']."</td>";
@@ -84,8 +96,6 @@ if(isset($_POST['u_list']))
 		echo $html;
 
 }
-
-
 
 if(isset($_POST['u_delete']))
 {

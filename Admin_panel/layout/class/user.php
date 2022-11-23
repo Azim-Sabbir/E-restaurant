@@ -20,6 +20,20 @@ class user
 			return false;
 		}
 	}
+
+    public function group_list()
+    {
+        $groups=$this->db->select("group_list","status='Active'");
+
+        if($groups)
+        {
+            return $groups;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
 
 
