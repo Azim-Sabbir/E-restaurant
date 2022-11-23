@@ -31,8 +31,8 @@ class Registration
                 first_name='$first_name',
                 last_name='$last_name',
                 phone='$phone',
-                group_name='staff',
-                store='test',
+                group_name='',
+                store_name='',
                 gender='male'
             ");
 
