@@ -31,8 +31,10 @@ class Registration
                 first_name='$first_name',
                 last_name='$last_name',
                 phone='$phone',
-                gender='male',
-                group_id=1");
+                group_name='staff',
+                store='test',
+                gender='male'
+            ");
 
 
             if ($add_user) {
