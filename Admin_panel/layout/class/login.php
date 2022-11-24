@@ -1,10 +1,10 @@
-<?php  
+<?php
 
 class login
 {
 	private $db;
 	function __construct()
-	{ 
+	{
 		$this->db=new Database;
 	}
 
@@ -25,12 +25,12 @@ class login
 		{
 			$login=$this->db->select("user_list","email='$email' AND pass='$password'");
 			if($this->db->db->affected_rows>0)
-			{ 
+			{
 				$fetch=$login->fetch_assoc();
 				Session::set("login",true);
 				Session::set("email",$fetch['email']);
 				Session::set("user_id",$fetch['id']);
-				Session::set("store",$fetch['store']);
+				Session::set("store",$fetch['store_name']);
 				header('Location:../Admin_panel/index.php');
 			}
 			else

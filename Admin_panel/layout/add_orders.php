@@ -1,4 +1,4 @@
-<?php  
+<?php
 $order=new Order;
 date_default_timezone_set("Asia/Dhaka");
 ?>
@@ -59,7 +59,7 @@ date_default_timezone_set("Asia/Dhaka");
                     <tr>
                       <td>
                        <select class="form-control select_group product" style="width:100%;" name="product_id" required>
-                           
+
                            <option>Select Product</option>
                            <?php
                            $data=$order->products_list();
@@ -85,9 +85,9 @@ date_default_timezone_set("Asia/Dhaka");
                </table>
 
                 <div class="field_wrapper">
-                  
+
                 </div>
-               
+
                <br/> <br/>
 
                <div class="col-md-6 col-xs-12 pull pull-right">
@@ -99,7 +99,7 @@ date_default_timezone_set("Asia/Dhaka");
                      <input type="hidden" class="form-control" id="gross_amount_value" name="gross_amount_value" autocomplete="off">
                    </div>
                  </div>
-                 
+
                   <div class="form-group">
                    <label for="discount" class="col-sm-5 control-label">Discount</label>
                    <div class="col-sm-7">
@@ -319,7 +319,7 @@ $(document).on("click",".create",function(){
     'discount':final_discount,
     'net_amount':final_net_amount,
     'user_id':user_id,
-    store,
+    'store': store,
     product_ids,
     qtys,
     rates,

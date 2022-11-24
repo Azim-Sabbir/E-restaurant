@@ -4,11 +4,11 @@ include_once '../Database/connect.php';
 $db=new Database;
 
 
-if(isset($_POST['product_id'])) 
+if(isset($_POST['product_id']))
 {
 	$id=$_POST['product_id'];
 	$query=$db->select("products_list","id=$id")->fetch_assoc();
-	if ($query) 
+	if ($query)
 	{
 		$value=json_encode($query);
 		echo $value;
@@ -25,7 +25,7 @@ if(isset($_POST['create']))
 	$discount=$_POST['discount'];
 	$net_amount=$_POST['net_amount'];
 	$user_id=$_POST['user_id'];
-	$store=1; 
+	$store=$_POST['store'];
 	$table_id=$_POST['table_id'];
 	$product_ids=$_POST['product_ids'];
 	$qtys=$_POST['qtys'];
@@ -36,17 +36,55 @@ if(isset($_POST['create']))
 	$date_time=date("Y-m-d")."-".date("h-i");
 	$bill_no="TINTIN".mt_rand(100000,1000000);
 
-	if($service_charge_rate==0)
+	if($service_charge_rate==0  )
 	{
-		$add=$db->insert("orders","bill_no='$bill_no',date_time='$date_time',gross_amount='$gross_amount',vat_charge_rate='$vat_charge_rate',vat_charge_amount='$vat_charge_amount',discount='$discount',net_amount='$net_amount',user_id='$user_id',table_id='$table_id',store_id='$store'");
-		foreach($product_ids as $key => $productId){
-			$add=$db->insert("order_items","bill_no='$bill_no',product_id='$productId',qty='$qtys[$key]',rate='$rates[$key]',amount='$amounts[$key]'");
+		$add=$db->insert(
+            "orders",
+            "bill_no='$bill_no',
+            date_time='$date_time',
+            gross_amount='$gross_amount',
+            vat_charge_rate='$vat_charge_rate',
+            vat_charge_amount='$vat_charge_amount',
+            service_charge_rate= '0',
+    		service_charge_amount = '0',
+            discount='$discount',
+            net_amount='$net_amount',
+            user_id='$user_id',
+            table_id='$table_id',
+            store_id='$store',
+            paid_status='paid'"
+        );
+
+        foreach($product_ids as $key => $productId){
+			$add=$db->insert(
+                "order_items",
+                "bill_no='$bill_no',
+                product_id='$productId',
+                qty='$qtys[$key]',
+                rate='$rates[$key]',
+                amount='$amounts[$key]'"
+            );
 		}
 	}
 	else
 	{
 		$service_charge_amount=$_POST['service_charge_amount'];
-		$add=$db->insert("orders","bill_no='$bill_no',date_time='$date_time',gross_amount='$gross_amount',service_charge_rate='$service_charge_rate',service_charge_amount='$service_charge_amount',vat_charge_rate='$vat_charge_rate',vat_charge_amount='$vat_charge_amount',discount='$discount',net_amount='$net_amount',user_id='$user_id',table_id='$table_id',store_id='$store'");
+		$add=$db->insert(
+            "orders",
+            "bill_no='$bill_no',
+            date_time='$date_time',
+            gross_amount='$gross_amount',
+            service_charge_rate='$service_charge_rate',
+            service_charge_amount='$service_charge_amount',
+            vat_charge_rate='$vat_charge_rate',
+            vat_charge_amount='$vat_charge_amount',
+            discount='$discount',
+            net_amount='$net_amount',
+            user_id='$user_id',
+            table_id='$table_id',
+            store_id='$store',
+            paid_status='paid'"
+        );
 	}
 	if($add)
 	{
@@ -58,7 +96,7 @@ if(isset($_POST['create']))
 	}
 }
 
-// if (isset($_POST['create'])) 
+// if (isset($_POST['create']))
 // {
 // 	$gross_amount=$_POST['gross_amount'];
 // 	$service_charge_rate=$_POST['service_charge_rate'];
@@ -74,7 +112,7 @@ if(isset($_POST['create']))
 // 	$date_time=date("Y-m-d")."-".date("h-i");
 // 	$bill_no="TINTIN".mt_rand(100000,1000000);
 
-// 	if ($service_charge_rate==0) 
+// 	if ($service_charge_rate==0)
 // 	{
 // 		$add=$db->insert("orders","bill_no='$bill_no',date_time='$date_time',gross_amount='$gross_amount',vat_charge_rate='$vat_charge_rate',vat_charge_amount='$vat_charge_amount',discount='$discount',net_amount='$net_amount',user_id='$user_id',table_id='$table_id',store='$store'");
 // 	}
@@ -83,7 +121,7 @@ if(isset($_POST['create']))
 // 		$service_charge_amount=$_POST['service_charge_amount'];
 // 		$add=$db->insert("orders","bill_no='$bill_no',date_time='$date_time',gross_amount='$gross_amount',service_charge_rate='$service_charge_rate',service_charge_amount='$service_charge_amount',vat_charge_rate='$vat_charge_rate',vat_charge_amount='$vat_charge_amount',discount='$discount',net_amount='$net_amount',user_id='$user_id',table_id='$table_id',store='$store'");
 // 	}
-// 	if ($add) 
+// 	if ($add)
 // 	{
 // 		echo($add);
 // 	}
