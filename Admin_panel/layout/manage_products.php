@@ -98,9 +98,17 @@ if (isset($_POST['update']))
         <div class="form-group">
           <label>Store</label>
           <select class="form-control store" name="e_store">
-            <option value="Habib Store">Habib Store</option>
-            <option value="Sadias Kitchen">Sadias Ktichen</option>
-            <option value="The Gallery">The Gallery</option>
+              <?php
+              $data=$products->store();
+              while($fetch_stores=$data->fetch_assoc())
+              {
+                  ?>
+
+                  <option value="<?=$fetch_stores['store_name']?>"><?=$fetch_stores['store_name']?></option>
+
+                  <?php
+              }
+              ?>
           </select>
         </div>
 
