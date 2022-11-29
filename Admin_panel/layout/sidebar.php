@@ -34,13 +34,13 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#groups" aria-expanded="true" aria-controls="groups">
           <i class="fa fa-users"></i>
-          <span>Groups</span>
+          <span>Employee Type</span>
         </a>
         <div id="groups" class="collapse" aria-labelledby="groups" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Group details:</h6>
-            <a class="collapse-item" href="?page=add_group">Add Groups</a>
-            <a class="collapse-item" href="?page=manage_group">Manage Groups</a>
+            <h6 class="collapse-header">Type details:</h6>
+            <a class="collapse-item" href="?page=add_group">Add Employee Type</a>
+            <a class="collapse-item" href="?page=manage_group">Manage Employee Type</a>
           </div>
         </div>
       </li>
@@ -51,13 +51,13 @@
 
   <!-- Heading -->
   <div class="sidebar-heading">
-    Stores Info
+    Branch Info
   </div>
 
   <li class="nav-item">
     <a class="nav-link" href="?page=stores">
       <i class="fa fa-store"></i>
-      <span>Stores</span>
+      <span>Branches</span>
     </a>
     <a class="nav-link" href="?page=tables">
       <i class="fa fa-table"></i>
@@ -66,19 +66,19 @@
 
     <a class="nav-link" href="?page=category">
       <i class="fas fa-puzzle-piece"></i>
-      <span>Category</span>
+      <span>Food Category</span>
     </a>
 
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#products" aria-expanded="true" aria-controls="products">
         <i class="fas fa-pizza-slice"></i>
-        <span>Products</span>
+        <span>Foods</span>
       </a>
       <div id="products" class="collapse" aria-labelledby="products" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Product details:</h6>
-          <a class="collapse-item" href="?page=add_products">Add Product</a>
-          <a class="collapse-item" href="?page=manage_products">Manage Products</a>
+          <h6 class="collapse-header">Food details:</h6>
+          <a class="collapse-item" href="?page=add_products">Add Food Item</a>
+          <a class="collapse-item" href="?page=manage_products">Manage Food Item</a>
         </div>
       </div>
     </li>

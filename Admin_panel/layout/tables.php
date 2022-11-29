@@ -51,7 +51,7 @@ $table=new table;
           </select>
         </div>
         <div class="form-group">
-          <label>Store Name</label>
+          <label>Branch Name</label>
           <select class="form-control store">
             <option>Select Store</option>
             <?php

@@ -26,7 +26,7 @@ $user=new user;
     <div class="modal-content">
 
       <div class="modal-header">
-      	<h4 class="modal-title">Edit Category</h4>
+      	<h4 class="modal-title">Edit User</h4>
         <button type="button" class="close" data-dismiss="modal">x</button>
       </div>
 
